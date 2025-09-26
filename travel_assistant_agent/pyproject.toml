@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "travel_assistant_agent"
+version = "0.1.0"
+description = ""
+authors = ["Raphael Cohen <rapcohen@gmail.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
