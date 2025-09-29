@@ -54,7 +54,7 @@ def classify_user_intent(
         model_provider=runtime.context.model_provider,
     )
     parser = PydanticOutputParser(pydantic_object=UserIntentClassification)
-    chain = llm | parser
+    chain = (llm | parser).with_retry(stop_after_attempt=2)
 
     system_message = INTENT_CLASSIFICATION_SYSTEM_PROMPT.format(
         previous_intent=state.user_query_intent.value,
@@ -88,7 +88,7 @@ def extract_user_preferences(
         model_provider=runtime.context.model_provider,
     )
     parser = PydanticOutputParser(pydantic_object=UserPreferences)
-    chain = llm | parser
+    chain = (llm | parser).with_retry(stop_after_attempt=2)
 
     system_message = PREFERENCES_EXTRACTION_SYSTEM_PROMPT.format(
         json_schema=json.dumps(UserPreferences.model_json_schema()),
