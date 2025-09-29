@@ -57,6 +57,9 @@ Type your travel questions; press Ctrl+C to exit.
 - Decision logic: explicit intent-to-tools map controls when external data is fetched, and LLM uses weather forcast only for an upcoming trip within 14 days (otherwise uses internal knowledge).
 - Hallucination & error mitigation: "never hallucinate" instructions, null preservation for unknown fields, confidence threshold for intent, safe fallbacks on tool/parse errors.
 
+## Agent graph
+![agent_graph.png](screenshots/agent_graph.png)
+
 ---
 ## Sample Interactions
 
